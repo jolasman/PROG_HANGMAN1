@@ -7,6 +7,8 @@ using namespace std;
 #include "p2.h"
 #include "p3.h"
 #include "p4.h"
+#include "p5.h"
+#include "p6.h"
 
 void main ()
 {
@@ -17,6 +19,9 @@ void main ()
 	//p3a_function();
 	//p3b_function();
 	//p4a_function();
-	p4b_function();
+	//p4b_function();
+	p5_function();
+	//p6a_function();
+	//p6b_function();
 	_getch();  
 }

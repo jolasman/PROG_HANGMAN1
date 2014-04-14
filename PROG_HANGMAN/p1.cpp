@@ -7,18 +7,12 @@ using namespace std;
 
 #include "p1.h"
 
-/*
-*
-*esta função deveria so ler palavras juntas contudo le ja com palavras separadas como pede no p1b
-*
-*/
-
 void p1a_function()
 {
 	cout << "WORD ? ";
 	string input;
 	cin >> input;
-	cin.ignore(10000, '\n');
+	cin.ignore(10000, '\n'); //"limpa" a cin no caso de terem sido inseridas mais que uma palavra
 
 	for(int i = 0 ; i < input.length(); i++)
 	{

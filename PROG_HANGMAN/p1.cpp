@@ -15,38 +15,33 @@ using namespace std;
 
 void p1a_function()
 {
-cout << "WORD ?" << endl;
+	cout << "WORD ? ";
+	string input;
+	cin >> input;
+	cin.ignore(10000, '\n');
 
+	for(int i = 0 ; i < input.length(); i++)
+	{
+		input[i] = toupper(input[i]);
+	}
 
-string imput = " ";
-cin >> imput;
-
-for(int i = 0 ; i < imput.length(); i++){
-	imput[i] = toupper(imput[i]);
-	
-	
-}
-	
 	cout << "WORD IN UPPERCASE: ";
-	cout << imput << endl;
+	cout << input << endl;
 }
 
 
 void p1b_function()
 {
-cout << "SENTENCE ?" << endl;
+	cout << "SENTENCE ? ";
+	string input;
+	getline(cin, input);
 
+	for(int i = 0 ; i < input.length(); i++)
+	{
+		input[i] = toupper(input[i]);
+	}
 
-string imput = " ";
-getline(cin , imput);
-
-for(int i = 0 ; i < imput.length(); i++){
-	imput[i] = toupper(imput[i]);
-	
-	
-}
-	
 	cout << "SENTENCE IN UPPERCASE: ";
-	cout << imput << endl;
+	cout << input << endl;
 }
 

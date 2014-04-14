@@ -2,35 +2,28 @@
 #include <iostream>
 using namespace std;
 
-#include "p1.h"
+#include "p2.h"
 
-/*
-*
-*esta função deveria so ler palavras juntas contudo le ja com palavras separadas como pede no p1b
-*
-*/
 
 void p2a_function()
 {
-cout << "STRING ?" << endl;
-
-string s;
-
-cin >> s;
-
-for(int i = s.length(); i > 0; i--){
-
-
-}
-
-
-
-
-
-
+	cout << "STRING  ? ";
+	string s;
+	cin >> s;
 	
-	cout << "INTEGER : ";
-	
+	int soma = 0;
+	//cout << "string length: " << s.length() << endl;
+	for(int i = s.length()-1; i >= 0; i--){
+		if (((int)s[i]<48) || ((int)s[i]>57))
+		{
+			cout << "Invalid chars: \"" << s[i] << "\" = " << (int)s[i] << endl;
+			return;
+		}
+		soma += ((int)s[i] - 48)* pow(10, s.length() - i - 1);
+		//cout << "soma : " << soma << endl;
+	}
+
+	cout << "INTEGER : " << soma << endl;
 }
 
 

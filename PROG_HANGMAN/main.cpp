@@ -15,8 +15,8 @@ void main ()
 	//p2a_function();
 	//p2b_function();
 	//p3a_function();
-	p3b_function();
+	//p3b_function();
 	//p4a_function();
-	//p4b_function();
+	p4b_function();
 	_getch();  
 }

@@ -19,7 +19,7 @@ void p2a_function()
 			cout << "Invalid char: \"" << s[i] << "\" = " << (int)s[i] << endl;
 			return;
 		}
-		soma += ((int)s[i] - 48)* pow(10, s.length() - i - 1);
+		soma += ((int)s[i] - 48)* (double) pow((double)10.0, (int)(s.length() - i - 1));
 		//cout << "soma : " << soma << endl;
 	}
 

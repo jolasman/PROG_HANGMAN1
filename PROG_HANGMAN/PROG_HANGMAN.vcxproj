@@ -77,10 +77,18 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="p1.cpp" />
     <ClCompile Include="p2.cpp" />
+    <ClCompile Include="p3.cpp" />
+    <ClCompile Include="p4.cpp" />
+    <ClCompile Include="p5.cpp" />
+    <ClCompile Include="p6.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="p1.h" />
     <ClInclude Include="p2.h" />
+    <ClInclude Include="p3.h" />
+    <ClInclude Include="p4.h" />
+    <ClInclude Include="p5.h" />
+    <ClInclude Include="p6.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

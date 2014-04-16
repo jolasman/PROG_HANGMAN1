@@ -11,6 +11,32 @@ using namespace std;
 
 void p6a_function(){
 
+	string n;
+
+	ifstream myfile ("beatles.txt");
+
+  if(myfile.is_open())
+  {
+    while (!myfile.eof())
+	{
+		getline(myfile,n); 
+	
+		cout << n << endl;
+		
+	}
+
+}else
+  {
+	  cout<<"erro ao abrir o ficheiro. tente outro nome\n";
+  }
+
+    myfile.close();
+  }
+
+
+
+void p6b_functions(){
+
 	cout << " name of .txt ?" << endl;
 	string name;
 
@@ -25,10 +51,10 @@ void p6a_function(){
   {
     while (!myfile.eof())
 	{
-		getline(myfile,n);
+		getline(myfile,n); // aqui acho que assim vai  ler o ficheiro todo e nao so a primeira linha com o numero que queremos
 
 		int N = 0;
-	
+	// passar de string para integer
 		for(int i = n.length()-1; i >= 0; i--)
 		{
 		//fazer a verificacao se o carater introduzido e um valor de 0 a 9 e nao outro qualquer

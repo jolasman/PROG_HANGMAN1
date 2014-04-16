@@ -20,8 +20,8 @@ void main ()
 	//p3b_function();
 	//p4a_function();
 	//p4b_function();
-	p5_function();
+	//p5_function();
 	//p6a_function();
-	//p6b_function();
+	p6b_function();
 	_getch();  
 }

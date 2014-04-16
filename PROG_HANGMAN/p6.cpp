@@ -1,89 +1,56 @@
-#include <stdio.h> /* printf, scanf, puts, NULL */
+#include <stdio.h>
+#include <stdlib.h>		/* srand, rand */
 #include <iostream>
-using namespace std;
-#include <fstream>// trabalhar com ficheiros
+#include <fstream>
 #include <sstream>
-#include <stdlib.h>
-#include <time.h>
+#include <time.h>		/* time */
+ 
+using namespace std;
 
-#include "p6.h"
+#include "p6.h" 
+ 
+void p6a_function()
+{
+	string file, line;
+	ifstream fs;
+	cout << "FILENAME ? ";
+	cin >> file;
 
-
-void p6a_function(){
-
-	string n;
-
-	ifstream myfile ("beatles.txt");
-
-  if(myfile.is_open())
-  {
-    while (!myfile.eof())
-	{
-		getline(myfile,n); 
-	
-		cout << n << endl;
-		
+	fs.open(file, ifstream::in);								//tenta abrir ficheiro 
+	if (!fs.is_open()) cout << "ERROR: File not found!" << endl;//se não consegue abrir ficheiro é porque não o encontrou 
+	else{
+		while (getline(fs, line)) cout << line << endl;			//enquanto nao chegar ao fim do ficheiro extrai linhas e mostra na consola
 	}
+	fs.close();													//fecha ficheiro 
+}
+ 
 
-}else
-  {
-	  cout<<"erro ao abrir o ficheiro. tente outro nome\n";
-  }
+void p6b_function()
+{
+	string file, line;
+	unsigned int nlines=0, exp=0;
+	ifstream fs;
+	cout << "FILENAME? ";
+	cin >> file;
 
-    myfile.close();
-  }
-
-
-
-void p6b_functions(){
-
-	cout << " name of .txt ?" << endl;
-	string name;
-
-	cin >> name;
-	string n;
-	
-	//e preciso fazer a parte de chamar o .txt com o nome dado pelo utilizador
-	
- ifstream myfile ("beatles.txt");
-
-  if(myfile.is_open())
-  {
-    while (!myfile.eof())
-	{
-		getline(myfile,n); // aqui acho que assim vai  ler o ficheiro todo e nao so a primeira linha com o numero que queremos
-
-		int N = 0;
-	// passar de string para integer
-		for(int i = n.length()-1; i >= 0; i--)
-		{
-		//fazer a verificacao se o carater introduzido e um valor de 0 a 9 e nao outro qualquer
-			if (((int)n[i]<48) || ((int)n[i]>57))
-		{
-			cout << "Invalid char: \"" << n[i] << "\" = " << (int)n[i] << endl;
-			return;
+	fs.open(file, ifstream::in);									//tenta abrir ficheiro 
+	if (!fs.is_open()) cout << "ERROR: File not found!" << endl;	//se nao consegue abrir ficheiro e' porque nao o encontrou 
+	else{
+		getline(fs, line);											//extrai a primeira linha para ver se contem o numero de linhas  
+		/* Converter a string em inteiro (p2a)*/
+		for (int i = line.length() - 1; i >= 0; i--){
+			if (((int)line[i]<48) || ((int)line[i]>57))
+			{
+				cout << "ERROR: First line is not a valid number (should be number of lines of the file). " << endl;
+				return;
+			}
+			nlines += ((int)line[i] - 48)* (int)pow((double)10.0, (int)exp);
+			exp++;
 		}
-
-		N += ((int)n[i] - 48)* (double) pow((double)10.0, (int)(n.length() - i - 1));
-		
+		srand((unsigned int)time(NULL));
+		int randN = rand() % nlines + 1;							//escolhe uma linha aleatoriamente
+		for (int i = 0; i < randN; i++) getline(fs, line);			//extrai linhas ate chegar a selecionada por 'rand()'
+		cout << "SENTENCE: " << line << endl;						//mostra na consola a linha
 	}
-		//calcular o valor de K aleatorio
-		int k;
-		int a = 1;
-	srand((unsigned int)time(NULL));
-	k = rand() % (N - a + 1) + a;
-
-
-
-
-	}
-
-}else
-  {
-	  cout<<"erro ao abrir o ficheiro. tente outro nome\n";
-  }
-
-    myfile.close();
-  }
-  
-
+	fs.close();														//fecha ficheiro 
+}

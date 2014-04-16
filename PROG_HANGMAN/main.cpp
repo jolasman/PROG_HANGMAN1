@@ -10,7 +10,7 @@ using namespace std;
 #include "p5.h"
 #include "p6.h"
 
-void main ()
+void main () 
 {
 	//p1a_function();
 	//p1b_function();
@@ -21,7 +21,7 @@ void main ()
 	//p4a_function();
 	//p4b_function();
 	//p5_function();
-	p6a_function();
-	//p6b_function();
-	//_getch();  
+	//p6a_function();
+	p6b_function();
+	_getch();  
 }

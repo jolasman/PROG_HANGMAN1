@@ -65,8 +65,7 @@ void hangman()
 		//verificar se ainda há asteriscos
 		if (unhide_letters(word, letters).find("*") == std::string::npos)
 		{
-			cout << "YOU ARE A WINNER. CONGRATULATIONS !" << endl;
-			_getch();
+			cout << endl << "YOU ARE A WINNER. CONGRATULATIONS !" << endl;
 			return;
 		}
 		if (!input(word, letters)){

@@ -12,6 +12,7 @@ using namespace std;
 #include "p6.h"
 #include "p7.h"
 #include "p8.h"
+#include "p9.cpp"
 
 void main () 
 {
@@ -64,10 +65,8 @@ void main ()
 	bool exists = show_file("beatles.txt");
 	if (exists) cout << endl << "File exists!" << endl << endl; 
 	else cout << endl << "File doesn't exist." << endl << endl;*/
-
-	/*Testes da p7b*/
-	hangman();
-
+	
+	hangman2();
 	_getch();  
 }  
 

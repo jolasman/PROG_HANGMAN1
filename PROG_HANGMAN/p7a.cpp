@@ -16,13 +16,13 @@ int rand_int(int a, int b)
 
 int string_to_int(std::string s)
 {
-	int soma = 0;
-	for (unsigned int i = s.length() - 1; i >= 0; i--)
-	{
-		soma += ((int)s[i] - 48)* (int)pow((int)10.0, (int)(s.length() - i - 1));
-	}
+	int sum = 0;
 
-	return soma;
+	for (int i = s.length()-1; i >= 0; i--)
+	{
+		sum += (s[i] - 48)* (int)pow( 10, s.length() - i - 1);
+	}
+	return sum;
 }
 
 std::string int_to_string(int n)
@@ -32,13 +32,13 @@ std::string int_to_string(int n)
 	std::string s;
 
 	if (n == 0) s = (char)(48);
-
 	while (temp > 0)
 	{
 		rem = temp % 10;
 		s = (char)(rem + 48) + s;
 		temp = temp / 10;
 	}
+	
 	return s;
 }
 
@@ -94,7 +94,7 @@ std::string unhide_letters(std::string s, std::vector<char> letters)
 
 void show_vector_char(std::vector<char> v)
 {
-	std::cout << "VECTOR: [ ";
+	std::cout << "[ ";
 	for (unsigned int i = 0; i < v.size(); i++)		//corre o vector para exibir na consola as letras recolhidas
 	{
 		std::cout << v[i] << " ";
@@ -114,30 +114,3 @@ bool show_file(std::string filename)
 	fs.close();		
 	return 1;
 }
-
-
-/* Function: int rand_int(int a, int b);
-Purpose :  generates, randomly, an integer in the range[a..b] 
-Base program  : p5.cpp
-Function : int string_to_int (std::string s); 
-Purpose :  converts string s to an integer number; assume that s represents a valid integer
-Base program  : p2a.cpp 
-Function : std::string int_to_string (int n)
-Purpose :  converts integer n to string 
-Base program  : p2b.cpp
-Function : std::string get_sentence(std::string filename); 
-Purpose :  returns a sentence (line of text), randomly selected from text file filename 
-Base program  : p6b.cpp
-Function : std::string string_to_upper(std::string s); 
-Purpose :  converts lowercase characters of s to uppercase
-Base program : p1a.cpp 
-Function : std::string unhide_letters (std::string s, std::vector<char> letters);
-Purpose :  replaces all characters of s that are different from ' ' (space) or that do not belong to vector letters by '*' characters and returns the obtained string  
-Base program : p4b.cpp 
-Function : void show_vector_char(std::vector<char> v);
-Purpose :  shows the contents of vector v on the screen 
-Base program : p3b.cpp
-Function : bool show_file(std::string filename);
-Purpose :  shows the contents of text file filename; returns true if the file exists or false, otherwise
-Base program  :
-p6a.cpp */

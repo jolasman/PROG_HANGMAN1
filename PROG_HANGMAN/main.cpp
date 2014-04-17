@@ -22,6 +22,6 @@ void main ()
 	//p4b_function();
 	//p5_function();
 	//p6a_function();
-	p6b_function();
+	//p6b_function();
 	_getch();  
 }

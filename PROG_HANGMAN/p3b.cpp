@@ -2,23 +2,10 @@
 #include <iostream>
 #include <conio.h>
 #include <vector>
- 
-using namespace std;
 
-#include "p3.h"
+using namespace std; 
 
-void p3a_function()
-{
-	int c;
-	do {
-		cout << "LETTER ? ";
-		c = _getch();
-		cout << (char) c << endl;
-	} while (!((c >= 'a') && (c <= 'z')) && !((c >= 'A') && (c <= 'Z')));
-}
-
-
-void p3b_function()
+void main()
 {
 	int c;
 	vector <char> letters;
@@ -35,7 +22,7 @@ void p3b_function()
 			{
 				if (letters[i] == (char)c) existe = 1;
 			}
-			if (existe == 0) letters.push_back((char) c);	//se não existe, insere a letra no vector
+			if (existe == 0) letters.push_back((char)c);	//se não existe, insere a letra no vector
 		}
 	} while (c != '.');
 
@@ -45,4 +32,5 @@ void p3b_function()
 		cout << letters[i] << " ";
 	}
 	cout << "]" << endl;
+	_getch();
 }

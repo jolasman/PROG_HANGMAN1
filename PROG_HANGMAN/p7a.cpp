@@ -1,10 +1,13 @@
-#include <stdio.h>      /* printf, scanf, puts, NULL */
-#include <stdlib.h>     /* srand, rand */
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <time.h>       /* time */
+#include <time.h>
+#include <conio.h>
+
+using namespace std;
 
 int rand_int(int a, int b)
 {
@@ -76,17 +79,17 @@ std::string string_to_upper(std::string s)
 std::string unhide_letters(std::string s, std::vector<char> letters)
 {
 	std::string c = string_to_upper(s);
-	bool presente;
+	bool present;
 	for (unsigned int i = 0; i < s.length(); i++)
 	{
-		presente = 0;
+		present = 0;
 		if (c[i] != ' ')
 		{
 			for (unsigned int j = 0; j < letters.size(); j++)
 			{
-				if (letters[j] == c[i]) { presente = 1; break; }
+				if (letters[j] == c[i]) { present = 1; break; }
 			}
-			if (presente == 0) s[i]='*';
+			if (present == 0) s[i]='*';
 		}
 	}
 	return s;
@@ -113,4 +116,48 @@ bool show_file(std::string filename)
 	}
 	fs.close();		
 	return 1;
+}
+
+void main()
+{
+	/*Testes da p7a*/
+	int n;
+	string s;
+	vector<char> letters;
+
+	n = rand_int(10, 20);
+	cout << "Random number: " << n << endl << endl;
+
+	n = string_to_int("123");
+	cout << "Text converted to number: " << n << endl << endl;
+
+	s = int_to_string(10);
+	cout << "Number converted to text: " << s << endl << endl;
+
+	s = get_sentence("beatles.txt");
+	cout << "Random sentence (beatles.txt): " << s << endl << endl;
+
+	s = string_to_upper(s);
+	cout << "Text converted to uppercase: " << s << endl << endl;
+
+	letters.push_back('F');
+	letters.push_back('T');
+	letters.push_back('P');
+	letters.push_back('L');
+	letters.push_back('O');
+	letters.push_back('E');
+	s = unhide_letters("Futebol Clube do Porto", letters);
+	cout << "Sentence: " << s << endl << endl;
+
+	cout << "VECTOR: ";
+	show_vector_char(letters);
+	cout << endl;
+
+	cout << "///////// beatles.txt: ////////// " << endl;
+	bool exists = show_file("beatles.txt");
+	cout << "///////////////////////////////// " << endl;
+	if (exists) cout << endl << "File EXISTS!" << endl << endl;
+	else cout << endl << "File DOESN'T exist." << endl << endl;
+
+	_getch();
 }

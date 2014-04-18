@@ -1,13 +1,13 @@
-#include <stdio.h>      /* printf, scanf, puts, NULL */
-#include <stdlib.h>     /* srand, rand */
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
-#include <time.h>       /* time */
+#include <time.h>
+#include <conio.h>
+
  
 using namespace std;
 
-#include "p5.h"
-
-void p5_function()
+void main()
 {
 	cout << "NUMBER A ? ";
 	int a;
@@ -15,9 +15,9 @@ void p5_function()
 	cout << "NUMBER B ? ";
 	int b;
 	cin >> b;
-	//se a > b??
 	int randN;
 	srand((unsigned int)time(NULL));
 	randN = rand() % (b - a + 1) + a;
 	cout << "Number generated randomly in the interval [" << a << ".." << b << "]: " << randN << endl;
+	_getch();
 }
